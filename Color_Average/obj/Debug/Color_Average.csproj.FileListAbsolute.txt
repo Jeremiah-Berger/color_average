@@ -1,0 +1,15 @@
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average.csprojAssemblyReference.cache
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\MainWindow.g.cs
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\App.g.cs
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average_MarkupCompile.cache
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average_MarkupCompile.lref
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\bin\Debug\Color_Average.exe.config
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\bin\Debug\Color_Average.exe
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\bin\Debug\Color_Average.pdb
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\MainWindow.baml
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average.g.resources
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average.Properties.Resources.resources
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average.csproj.GenerateResource.cache
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average.csproj.CoreCompileInputs.cache
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average.exe
+C:\Users\j.berger\source\repos\Color_Average\Color_Average\obj\Debug\Color_Average.pdb
