@@ -17,6 +17,7 @@ namespace Color_Average
         public MainWindow()
         {
             InitializeComponent();
+            // this is taking a while, but not if it was Danny
         }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
