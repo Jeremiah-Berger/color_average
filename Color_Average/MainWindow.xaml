@@ -6,19 +6,22 @@
         xmlns:local="clr-namespace:Color_Average"
         mc:Ignorable="d"
         ResizeMode="CanResize"
+        Width="1075"
         Title="Photo Color Average" MouseLeftButtonDown="Window_MouseLeftButtonDown" >
 
+     
+    <Canvas Canvas.Top="0" Canvas.Left="0">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="400"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
-        <Button Content="Import"  HorizontalAlignment="Center" FontSize="28" VerticalAlignment="Top" Height="75" Width="125" Name="ImportButton" Click="ImportButton_Click" Grid.Row="0" Grid.Column="1" Margin="-150,20,0,0"/>
+            <Button Content="Import"  HorizontalAlignment="Center" FontSize="28" VerticalAlignment="Top" Height="75" Width="125" Name="ImportButton" Click="ImportButton_Click" Grid.Row="0" Grid.Column="1" Margin="-150,20,0,0"/>
         <Button Content="Pixel-ator"  HorizontalAlignment="Center" FontSize="28" VerticalAlignment="Top" Height="75" Width="125" Name="PixelatorButton" Click="PixelatorButton_Click" Grid.Row="0" Grid.Column="1" Margin="150,20,0,0"/>
         <Image Margin="10,10,10,10" Name="Image" Height ="400" Grid.Row="1" Grid.Column="0"></Image>
         
@@ -27,10 +30,11 @@
         <Rectangle Margin="10,10,10,10"  Name="ColorDisplay" Height ="400" Grid.Row="1" Grid.Column="2"></Rectangle>
         <TextBox Grid.Column="2" FontSize="20" Margin="0,470,0,0" Grid.Row="1" Name="RGBText" HorizontalAlignment="Center" IsReadOnly="True" Background="White" BorderThickness="0"/>
         <TextBox Grid.Column="2" FontSize="20" Margin="0,500,0,0" Grid.Row="1" Name="HexText" HorizontalAlignment="Center" IsReadOnly="True" Background="White" BorderThickness="0"/>
-        <Image Grid.Column="1" Grid.Row="1" Name="ToBePixelated" Height="600"></Image>
+        
         
         <Label Content="X" Name="XLabel"></Label>
         <Label Content="Y" Name="YLabel" Margin="0,20,0,0"></Label>
         <Label Content="PixelColor" Name="PixelColor" Margin="0,40,0,0"></Label>
     </Grid>
+    </Canvas>
 </Window>

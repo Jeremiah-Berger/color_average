@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 
 namespace Color_Average
 {    /// <summary>
@@ -12,15 +13,37 @@ namespace Color_Average
      /// </summary>
     public partial class MainWindow : Window
     {
-        
-       
+        public bool AllowCursor;
+        public int ImageWidthHalf;
+        public int PixelateIntensity;
+        public Bitmap UserImage;
+        public int TotalPixels;
+
         public MainWindow()
         {
             InitializeComponent();
             
         }
+
+
         
 
+
+
+        private void ScaleTransformFloat(System.Windows.Forms.PaintEventArgs e)
+        {
+            // Begin graphics container
+            GraphicsContainer containerState = e.Graphics.BeginContainer();
+
+            // Flip the Y-Axis
+            e.Graphics.ScaleTransform(1.0F, -1.0F);
+
+            // Translate the drawing area accordingly
+            e.Graphics.TranslateTransform(0.0F, -(float)Height);
+
+            
+            
+        }
 
         private void ImportButton_Click(object sender, RoutedEventArgs e)
         {
@@ -42,7 +65,9 @@ namespace Color_Average
                 Bitmap UserImage = new Bitmap(path);
                 BitmapImage ImgSrc = new BitmapImage(new Uri(op.FileName));
                 Image.Source = ImgSrc;
-                int TotalPixels = (UserImage.Height) * (UserImage.Width);
+                int UserImageHeight = UserImage.Height; 
+                    int UserImageWidth = UserImage.Width;
+                int TotalPixels = UserImageHeight * UserImageWidth;
                 int RectangleWidth = ((400 * ((UserImage.Width) / (UserImage.Height)) * (UserImage.Width)) / UserImage.Height);
 
                
@@ -83,10 +108,10 @@ namespace Color_Average
             }
         }
 
-        public bool AllowCursor;
-        public int ImageWidthHalf;
-        public int PixelateIntensity;
-        public Bitmap UserImage;
+
+
+
+
 
         private void PixelatorButton_Click(object sender, RoutedEventArgs e)
         {
@@ -107,11 +132,13 @@ namespace Color_Average
                 string path = new Uri(op.FileName).LocalPath.ToString();
                 UserImage = new Bitmap(path);
                 BitmapImage ImgSrc = new BitmapImage(new Uri(op.FileName));
-                ToBePixelated.Source = ImgSrc;
+                ToPixelImage.Source = ImgSrc;
                 ImageWidthHalf = (((UserImage.Height) / (600)) * (UserImage.Width)) / 2 ;
 
                 AllowCursor = true;
-
+                int UserImageHeight = UserImage.Height;
+                int UserImageWidth = UserImage.Width;
+                TotalPixels = UserImageHeight * UserImageWidth;
 
 
 
@@ -131,20 +158,26 @@ namespace Color_Average
                 PixelateIntensity = 20;
 
 
-               var pos = e.GetPosition(this.ToPixelImage);
+               var pos = e.GetPosition(this);
               XLabel.Content = pos.X;
                YLabel.Content = pos.Y;
 
-              
+                double Ratio = (TotalPixels / (ToPixelImage.Height * ToPixelImage.Height * (UserImage.Width / UserImage.Height)));
+
+                int RefCoordX = (int)((Convert.ToInt16(pos.X) - 410) * Ratio);
+                int RefCoordY = (int)((Convert.ToInt16(pos.Y) - 110) * Ratio);
+                
 
 
 
-                System.Drawing.Color PhotoColor = UserImage.GetPixel(Convert.ToInt16(pos.X), Convert.ToInt16(pos.Y));
+                System.Drawing.Color PhotoColor = UserImage.GetPixel(RefCoordX, RefCoordY);
+
+                PixelColor.Content = PhotoColor;
+
                 byte red = PhotoColor.R;
                 byte green = PhotoColor.G;
                 byte blue = PhotoColor.B;
-
-
+                ColorDisplay.Fill = new SolidColorBrush(System.Windows.Media.Color.FromRgb((byte)red, (byte)green, (byte)blue));
             }
 
            else;
